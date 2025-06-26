@@ -1,0 +1,420 @@
+/* Basic Resets and Variables */
+:root {
+    --light-bg-color: #f4f7f6;
+    --light-text-color: #333;
+    --light-link-color: #007bff;
+    --light-accent-color: #007bff;
+    --light-border-color: #ddd;
+    --light-navbar-bg: #fff;
+    --light-navbar-text: #333;
+
+    --dark-bg-color: #282c36;
+    --dark-text-color: #f4f7f6;
+    --dark-link-color: #61dafb;
+    --dark-accent-color: #61dafb;
+    --dark-border-color: #444;
+    --dark-navbar-bg: #1f232a;
+    --dark-navbar-text: #f4f7f6;
+
+    --transition-speed: 0.3s ease-in-out;
+}
+
+:root {
+    /* ... other variables ... */
+    --dark-navbar-text: #f4f7f6; /* This color is good, but let's ensure it applies */
+    --dark-link-color: #61dafb; /* This is also good for links */
+    /* ... */
+}
+
+body.dark-theme .navbar {
+    background-color: var(--dark-navbar-bg);
+    color: var(--dark-navbar-text); /* Ensure this is being applied */
+    border-bottom-color: var(--dark-border-color);
+}
+
+body.dark-theme .navbar a {
+    color: var(--dark-navbar-text); /* This should make navigation links lighter */
+}
+
+body.dark-theme .navbar a:hover {
+    color: var(--dark-accent-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* In your style.css, find the dark-theme specific overrides */
+
+body.dark-theme .navbar .logo {
+    color: var(--dark-navbar-text); /* Ensure logo is bright */
+}
+
+/* Also ensure general body text and headers are good */
+body.dark-theme {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color); /* This should control most text */
+}
+
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: var(--dark-text-color); /* Explicitly make headings light */
+}
+
+/* For the about section paragraph, it will inherit from body.dark-theme color */
+
+/* Dark Theme Styles */
+body.dark-theme {
+    background-color: var(--dark-bg-color);
+    color: var(--dark-text-color);
+}
+
+body.dark-theme .navbar {
+    background-color: var(--dark-navbar-bg);
+    color: var(--dark-navbar-text);
+    border-bottom-color: var(--dark-border-color);
+}
+
+body.dark-theme .navbar a {
+    color: var(--dark-navbar-text);
+}
+
+body.dark-theme .navbar a:hover {
+    color: var(--dark-accent-color);
+}
+
+body.dark-theme .theme-toggle {
+    background-color: var(--dark-accent-color);
+    color: var(--dark-navbar-bg);
+}
+
+body.dark-theme .section {
+    background-color: var(--dark-navbar-bg); /* Slightly darker for sections */
+    border-color: var(--dark-border-color);
+}
+
+body.dark-theme .btn-primary {
+    background-color: var(--dark-accent-color);
+    color: var(--dark-navbar-bg);
+}
+
+body.dark-theme .btn-primary:hover {
+    background-color: darken(var(--dark-accent-color), 10%); /* Placeholder for darken */
+}
+
+body.dark-theme a {
+    color: var(--dark-link-color);
+}
+
+body.dark-theme a:hover {
+    color: lighten(var(--dark-link-color), 10%); /* Placeholder for lighten */
+}
+
+
+/* General Styling */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--light-link-color);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--light-accent-color);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--light-accent-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color var(--transition-speed);
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--light-accent-color), 10%); /* This won't work directly in CSS, use a slightly darker hex code or JS for dynamic darkening */
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--light-text-color);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--light-accent-color);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--light-navbar-bg);
+    color: var(--light-navbar-text);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--light-border-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--light-navbar-text);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin-left: 25px;
+}
+
+.navbar ul li a {
+    color: var(--light-navbar-text);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--light-accent-color);
+    transition: width var(--transition-speed);
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+.theme-toggle {
+    background: var(--light-accent-color);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.theme-toggle:hover {
+    opacity: 0.9;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 150px 0 100px; /* Adjust padding to account for fixed navbar */
+    background-color: var(--light-bg-color);
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Make it full viewport height */
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: center;
+}
+
+.hero-text h2 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--light-text-color);
+}
+
+.hero-text p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: var(--light-text-color);
+}
+
+.hero-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    width: 300px; /* Adjust as needed */
+    height: 300px; /* Adjust as needed */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--light-accent-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover {
+    transform: scale(1.05);
+}
+
+/* Sections */
+.section {
+    padding: 80px 0;
+    background-color: var(--light-navbar-bg);
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid var(--light-border-color);
+    transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.section:last-of-type {
+    margin-bottom: 0;
+}
+
+.services-list, .projects-list, .internships-list {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.services-list li, .project-item, .internship-item {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.services-list li::before, .project-item::before, .internship-item::before {
+    content: '\2022'; /* Bullet point */
+    color: var(--light-accent-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.project-item h3, .internship-item h3 {
+    margin-bottom: 5px;
+    color: var(--light-accent-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--light-navbar-bg);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--light-border-color);
+    margin-top: 40px;
+}
+
+/* Animations (Scroll Reveal) */
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* Hover Effects */
+.service-item, .project-item, .internship-item {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-item:hover, .project-item:hover, .internship-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar ul {
+        margin-top: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar ul li {
+        margin: 0 10px 10px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding-top: 50px;
+    }
+
+    .hero-text h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-text p {
+        font-size: 1.2em;
+    }
+
+    .hero-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+}
